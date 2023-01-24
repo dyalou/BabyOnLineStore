@@ -6,14 +6,15 @@ using System.Net.Http.Headers;
 
 namespace BabyOnLineStore.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<ProductTypes> ProductTypes { get; set; }
+        public DbSet<ItemsList> ProductTypes { get; set; }
+        public DbSet<Items> Items { get; set; }
     }
 
 }
