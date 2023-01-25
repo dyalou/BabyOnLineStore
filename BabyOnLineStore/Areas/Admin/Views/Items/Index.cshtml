@@ -1,5 +1,119 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using BabyOnLineStore.Models;
+@using BabyOnLineStore.Data;
+@model IEnumerable<Items >;// for reading the data list from the database
+
+
 @{
+    ViewData["Title"] = "Index";
 }
+<br />
+
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Items List</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New Product Type</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(c => c.ItemName)
+            </th>
+             <th>
+                @Html.DisplayNameFor(c => c.Categories)
+            </th>
+             <th>
+                @Html.DisplayNameFor(c => c.Price)
+            </th>
+             <th>
+                @Html.DisplayNameFor(c => c.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(c => c.ProductDescription)
+            </th>
+             <th>
+                @Html.DisplayNameFor(c => c.Image)
+            </th>
+             <th>
+                @Html.DisplayNameFor(c => c.DataCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(c => c.ItemsList)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ItemName</td>
+                 <td>@item.Categories</td>
+                  <td>@item.Price</td>
+                   <td>@item.Type</td>
+                    <td>@item.ProductDescription</td>
+                     <td>@item.Image</td> 
+                     <td>@item.DataCreated</td>
+                     <td>@item.ItemsList</td>
+               
+
+                    <partial name="_ButtonPartial" model="@item.Id" />
+
+
+            </tr>
+        }
+    </table>
+</div>
+
+
+@*disgien the table in the bage*@
+@*@*<div>
+    <table class="table table-striped border">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>ProductId </th>
+                <th>Categories</th>
+                <th>Price</th>
+                <th>SalePrice</th>
+                <th>Type</th>
+                <th>ProductDescription</th>
+                <th>Brand</th>
+                <th>Image </th>
+                <th>Created</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @* a loop all the result that comming from the database*@
+@*       @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.ProductId</td>
+                    <td>@item.Categories</td>
+                    <td>@item.Price</td>
+                    <td>@item.SalePrice</td>
+                    <td>@item.Type</td>
+                    <td>@item.ProductDescription</td>
+                    <td>@item.Brand</td>
+                    <td>@item.Image</td>
+                    <td>@item.Created.ToString("dd-mm-yyyy")</td>
+                    <td><a href="Item/View/@item.Id">View</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>*@
+
+
