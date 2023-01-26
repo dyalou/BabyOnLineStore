@@ -13,20 +13,21 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
     {
         // passing data till database throw a cunstractor
         private AppDbContext _db;
-        private IHostEnvironment _he;
+        //private IHostEnvironment _he;
 
 
 
 
-        public ProductController(AppDbContext db, IHostEnvironment he)
+        public ProductController(AppDbContext db)
         {
             _db = db;
-            _he = he;
+            //_he = he;
         }
 
         public IActionResult Index()
         {
-            return View(_db.Items.Include(c => c.ProductTypes).ToList());
+            return View(_db.Products.Include(c => c.ProductTypes).ToList());
+            //return View(_db.ProductTypes.ToList());
 
 
         }
@@ -34,12 +35,12 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Index(double? lowAmount, double? largeAmount)
         {
-            var items = _db.Items.Include(c => c.ProductTypes).ToList();
+            var product = _db.Products.Include(c => c.ProductTypes).ToList();
             if (lowAmount == null || largeAmount == null)
             {
-                items = _db.Items.Include(c => c.ProductTypes).ToList();
+                product = _db.Products.Include(c => c.ProductTypes).ToList();
             }
-            return View(items);
+            return View(product);
         }
 
         public IActionResult Create()
@@ -53,7 +54,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         ////Post Create method
         [HttpPost]
-        public async Task<IActionResult> Create(Products items, IFormFile image)
+        public async Task<IActionResult> Create(Products product/*, IFormFile image*/)
         //{
         //    if (ModelState.IsValid)
         {
@@ -81,7 +82,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
             //        //{
             //        //    items.Image = "Images/noimage.PNG";
             //        //}
-            //     _db.Items.Add(items);
+            _db.Products.Add(product);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
             //    }
