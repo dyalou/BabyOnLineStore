@@ -1,9 +1,11 @@
 ﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
 
 namespace BabyOnLineStore.Models
 {
-    public class Items
+    public class Products
     {
 
         public int Id { get; set; }
@@ -21,7 +23,11 @@ namespace BabyOnLineStore.Models
         public string? Image { get; set; }
 
         public DateTime DataCreated { get; set; }
+
+        //[Display(Name = "Product Type")]
+
+        //public int ProductTypeId { get; set; }
         [ForeignKey("ProductTypedId")]
-        public ItemsList ItemsList { get; set; }
+        public virtual ProductTypes ProductTypes { get; set; }
     }
 }

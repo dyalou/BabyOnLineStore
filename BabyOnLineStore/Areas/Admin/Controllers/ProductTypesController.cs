@@ -30,7 +30,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ItemsList productTypes)
+        public async Task<IActionResult> Create(ProductTypes productTypes)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +63,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ItemsList productTypes)
+        public async Task<IActionResult> Edit(ProductTypes productTypes)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Details(ItemsList productTypes)
+        public IActionResult Details(ProductTypes productTypes)
         {
             return RedirectToAction(nameof(Index));
 
@@ -125,7 +125,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int? id, ItemsList productTypes)
+        public async Task<IActionResult> Delete(int? id, ProductTypes productTypes)
         {
             if (id == null)
             {

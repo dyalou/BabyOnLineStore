@@ -1,6 +1,6 @@
 ﻿@using BabyOnLineStore.Models;
 @using BabyOnLineStore.Data;
-@model IEnumerable<Items >;// for reading the data list from the database
+@model IEnumerable<Products >;// for reading the data list from the database
 
 
 @{
@@ -25,26 +25,26 @@
             <th>
                 @Html.DisplayNameFor(c => c.ItemName)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(c => c.Categories)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(c => c.Price)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(c => c.Type)
             </th>
             <th>
                 @Html.DisplayNameFor(c => c.ProductDescription)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(c => c.Image)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(c => c.DataCreated)
             </th>
             <th>
-                @Html.DisplayNameFor(c => c.ItemsList)
+                @Html.DisplayNameFor(c => c.ProductTypes)
             </th>
             <th></th>
             <th></th>
@@ -53,16 +53,16 @@
         {
             <tr>
                 <td>@item.ItemName</td>
-                 <td>@item.Categories</td>
-                  <td>@item.Price</td>
-                   <td>@item.Type</td>
-                    <td>@item.ProductDescription</td>
-                     <td>@item.Image</td> 
-                     <td>@item.DataCreated</td>
-                     <td>@item.ItemsList</td>
-               
+                <td>@item.Categories</td>
+                <td>@item.Price</td>
+                <td>@item.Type</td>
+                <td>@item.ProductDescription</td>
+                <td>@item.Image</td>
+                <td>@item.DataCreated</td>
+                <td>@item.ProductTypes</td>
 
-                    <partial name="_ButtonPartial" model="@item.Id" />
+
+                <partial name="_ButtonPartial" model="@item.Id" />
 
 
             </tr>
