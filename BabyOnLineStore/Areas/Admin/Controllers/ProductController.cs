@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 namespace BabyOnLineStore.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ItemsController : Controller
+    public class ProductController : Controller
     {
         // passing data till database throw a cunstractor
         private AppDbContext _db;
@@ -18,7 +18,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
 
 
-        public ItemsController(AppDbContext db, IHostEnvironment he)
+        public ProductController(AppDbContext db, IHostEnvironment he)
         {
             _db = db;
             _he = he;
@@ -26,7 +26,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Items.Include(c => c.ItemsList).ToList());
+            return View(_db.Items.Include(c => c.ProductType).ToList());
 
 
         }
@@ -34,10 +34,10 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Index(double? lowAmount, double? largeAmount)
         {
-            var items = _db.Items.Include(c => c.ItemsList).ToList();
+            var items = _db.Items.Include(c => c.ProductType).ToList();
             if (lowAmount == null || largeAmount == null)
             {
-                items = _db.Items.Include(c => c.ItemsList).ToList();
+                items = _db.Items.Include(c => c.ProductType).ToList();
             }
             return View(items);
         }
@@ -53,7 +53,7 @@ namespace BabyOnLineStore.Areas.Admin.Controllers
 
         //Post Create method
         [HttpPost]
-        public async Task<IActionResult> Create(Items items, IFormFile image)
+        public async Task<IActionResult> Create(Product items, IFormFile image)
         {
             if (ModelState.IsValid)
             {

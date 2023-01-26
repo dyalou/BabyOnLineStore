@@ -13,8 +13,8 @@ namespace BabyOnLineStore.Data
         {
         }
 
-        public DbSet<ItemsList> ProductTypes { get; set; }
-        public DbSet<Items> Items { get; set; }
+        public DbSet<ProductTypes> ProductTypes { get; set; }
+        public DbSet<Product> Items { get; set; }
     }
 
 }

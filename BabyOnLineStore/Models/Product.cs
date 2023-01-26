@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BabyOnLineStore.Models
 {
-    public class Items
+    public class Product
     {
 
         public int Id { get; set; }
@@ -22,6 +22,6 @@ namespace BabyOnLineStore.Models
 
         public DateTime DataCreated { get; set; }
         [ForeignKey("ProductTypedId")]
-        public ItemsList ItemsList { get; set; }
+        public ProductTypes ProductType { get; set; }
     }
 }

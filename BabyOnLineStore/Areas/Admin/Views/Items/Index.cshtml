@@ -1,6 +1,6 @@
 ﻿@using BabyOnLineStore.Models;
 @using BabyOnLineStore.Data;
-@model IEnumerable<Items >;// for reading the data list from the database
+@model IEnumerable<Product >;// for reading the data list from the database
 
 
 @{
@@ -44,7 +44,7 @@
                 @Html.DisplayNameFor(c => c.DataCreated)
             </th>
             <th>
-                @Html.DisplayNameFor(c => c.ItemsList)
+                @Html.DisplayNameFor(c => c.ProductType)
             </th>
             <th></th>
             <th></th>
@@ -59,7 +59,7 @@
                     <td>@item.ProductDescription</td>
                      <td>@item.Image</td> 
                      <td>@item.DataCreated</td>
-                     <td>@item.ItemsList</td>
+                <td>@item.ProductType</td>
                
 
                     <partial name="_ButtonPartial" model="@item.Id" />

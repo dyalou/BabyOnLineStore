@@ -2,7 +2,7 @@
 
 namespace BabyOnLineStore.Models
 {
-    public class ItemsList
+    public class ProductTypes
     {
         public int Id { get; set; }
         //[Required]
