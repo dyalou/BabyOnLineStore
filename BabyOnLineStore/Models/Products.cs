@@ -24,10 +24,11 @@ namespace BabyOnLineStore.Models
 
         public DateTime DataCreated { get; set; }
 
-        //[Display(Name = "Product Type")]
+        [Display(Name = "Product Type")]
 
-        //public int ProductTypeId { get; set; }
-        [ForeignKey("ProductTypedId")]
+        public int ProductTypeId { get; set; }
+        [ForeignKey("ProductTypeId")]
         public virtual ProductTypes ProductTypes { get; set; }
+
     }
 }
